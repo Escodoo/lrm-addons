@@ -4,24 +4,38 @@
 <odoo>
 
     <record id="view_order_tree" model="ir.ui.view">
-        <field name="name">sale.order.tree (in epa_sale_stock_custom)</field>
+        <field name="name">sale.order.tree (in lrm_sale_stock_custom)</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_tree" />
         <field name="arch" type="xml">
-            <field name="invoice_status" position="after">
-                <field name="client_order_ref" optional="hide" />
+            <field name="partner_id" position="after">
+                <field name="client_order_ref" optional="show" />
+                <field name="origin" optional="show" />
             </field>
         </field>
     </record>
 
     <record id="view_quotation_tree" model="ir.ui.view">
-        <field name="name">sale.order.tree (in epa_sale_stock_custom)</field>
+        <field name="name">sale.order.tree (in lrm_sale_stock_custom)</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree" />
         <field name="arch" type="xml">
-            <field name="invoice_status" position="after">
-                <field name="client_order_ref" optional="hide" />
+            <field name="partner_id" position="after">
+                <field name="client_order_ref" optional="show" />
+                <field name="origin" optional="show" />
             </field>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter" model="ir.ui.view">
+        <field name="name">sale.order.list.select (in lrm_sale_stock_custom)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <search position="inside">
+                <field name="client_order_ref" />
+                <field name="origin" />
+            </search>
         </field>
     </record>
 
