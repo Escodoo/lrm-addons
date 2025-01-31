@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* lrm_hr_employee_ppe_custom
+#
+# Translators:
+# Wesley Oliveira <wesley.oliveira@escodoo.com.br>, 2024
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-31 21:00+0000\n"
+"PO-Revision-Date: 2025-01-31 21:00+0000\n"
+"Last-Translator: Wesley Oliveira, 2024\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid ""
+"<span>\n"
+"                    is providing the following Personal Protection Equipment (PPE) to employee\n"
+"                </span>"
+msgstr ""
+"<span>\n"
+"                    está fornecendo o seguinte Equipamento de Proteção Individual (EPI) ao colaborador\n"
+"                </span>"
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid "Default Code"
+msgstr "Referência Interna"
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid ""
+"I declare for all legal purposes that I received the PPE that my employer provides\n"
+"                me free of charge. I recognize although I have been instructed on how to use and\n"
+"                maintain it, I undertake to use the equipment during carrying out my activities\n"
+"                when exposed to the exposure against which it was designed to protect. If it is\n"
+"                lost or damaged, I will report it to my employer immediately for replacement.\n"
+"                I recognize that my failure to do so may subject me to disciplinary action."
+msgstr ""
+"Declaro para todos os fins de direito que recebi gratuitamente o EPI que meu\n"
+"                empregador me fornece. Reconheço ainda que fui instruído em como usá-lo e\n"
+"                mantê-lo, os quais me comprometo a utilizar o equipamento durante a realização de minhas atividades\n"
+"                quando estiver a exposição contra a qual foi projetado para proteger. Se for\n"
+"                perdido ou danificado, informarei o mesmo ao meu empregador imediatamente para substituição.\n"
+"                Reconheço que minha falha em fazê-lo pode me sujeitar a ações disciplinares."
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid ""
+"I declare that I am in agreement with all the present terms, which is why I sign,\n"
+"                on this date, freely and spontaneous will."
+msgstr ""
+"Declaro que estou de acordo com todos os termos presentes, razão pela qual assino,\n"
+"                nesta data, por livre e espontânea vontade."
+
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid "Indications"
+msgstr "Indicações"
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid "Product"
+msgstr "Produto"
+
+#. module: lrm_hr_employee_ppe_custom
+#: model_terms:ir.ui.view,arch_db:lrm_hr_employee_ppe_custom.hr_employee_ppe_report_template
+msgid "Quantity"
+msgstr "Quantidade"

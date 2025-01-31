@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 - TODAY, Wesley Oliveira <wesley.oliveira@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<!-- oca-hooks:disable=xml-dangerous-qweb-replace-low-priority  -->
+<odoo>
+
+    <template
+        id="hr_employee_ppe_report_template"
+        inherit_id="hr_employee_ppe.hr_employee_ppe_report_template"
+    >
+        <xpath expr="//div[@name='employee_name']" position="replace">
+            <div name="employee_name">
+                <span t-field="doc.employee_id.company_id.name" />
+                <span>
+                    is providing the following Personal Protection Equipment (PPE) to employee
+                </span>
+                <u>
+                    <span t-field="doc.employee_id.name" />
+                </u>
+            </div>
+        </xpath>
+        <table position="replace">
+            <table class="table table-condensed">
+                <tbody>
+                    <div>
+                        <t>
+                            <tr>
+                                <th>
+                                    Product
+                                </th>
+                                <th>
+                                    Default Code
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Indications
+                                </th>
+                            </tr>
+                            <tr t-foreach="doc.line_ids" t-as="line" t-if="line.is_ppe">
+                                <td>
+                                    <t t-esc="line.product_id.name" />
+                                </td>
+                                <td>
+                                    <t t-esc="line.product_id.default_code" />
+                                </td>
+                                <td>
+                                    <t t-esc="line.quantity" />
+                                </td>
+                                <td>
+                                    <t t-esc="line.indications" />
+                                </td>
+                            </tr>
+                        </t>
+                    </div>
+                </tbody>
+            </table>
+        </table>
+        <xpath expr="//p[1]" position="replace">
+            <p>
+                I declare for all legal purposes that I received the PPE that my employer provides
+                me free of charge. I recognize although I have been instructed on how to use and
+                maintain it, I undertake to use the equipment during carrying out my activities
+                when exposed to the exposure against which it was designed to protect. If it is
+                lost or damaged, I will report it to my employer immediately for replacement.
+                I recognize that my failure to do so may subject me to disciplinary action.
+            </p>
+        </xpath>
+        <xpath expr="//p[2]" position="replace">
+            <p>
+                I declare that I am in agreement with all the present terms, which is why I sign,
+                on this date, freely and spontaneous will.
+            </p>
+        </xpath>
+    </template>
+
+</odoo>
