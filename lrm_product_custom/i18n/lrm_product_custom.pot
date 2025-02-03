@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 16:24+0000\n"
-"PO-Revision-Date: 2025-01-08 16:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,17 +21,17 @@ msgstr ""
 
 #. module: lrm_product_custom
 #: model_terms:ir.ui.view,arch_db:lrm_product_custom.report_product_label_custom
+msgid "Barcode"
+msgstr ""
+
+#. module: lrm_product_custom
+#: model_terms:ir.ui.view,arch_db:lrm_product_custom.report_product_label_custom
 msgid "No barcode available"
 msgstr ""
 
 #. module: lrm_product_custom
 #: model_terms:ir.ui.view,arch_db:lrm_product_custom.report_product_label_custom
 msgid "No internal reference available"
-msgstr ""
-
-#. module: lrm_product_custom
-#: model_terms:ir.ui.view,arch_db:lrm_product_custom.report_product_label_custom
-msgid "Barcode"
 msgstr ""
 
 #. module: lrm_product_custom
