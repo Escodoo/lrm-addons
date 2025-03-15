@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="lrm_report_saleorder_document_l10n_br_sale_inherit"
+        inherit_id="l10n_br_sale.report_saleorder_document_l10n_br_sale"
+    >
+        <!-- Add ICMS label and value -->
+        <xpath expr="//td[@name='td_amount_tax_label']" position="after">
+            <td name="td_amount_icms_label"><strong>ICMS</strong></td>
+        </xpath>
+        <xpath expr="//td[@name='td_amount_tax']" position="after">
+            <td name="td_amount_icms" class="text-right">
+                <span t-field="doc.amount_icms_value" />
+            </td>
+        </xpath>
+    </template>
+
+    <!-- Template for customizing the sale order document -->
+    <template
+        id="lrm_report_saleorder_document"
+        inherit_id="sale.report_saleorder_document"
+    >
+        <!-- Hide the address section (both div and paragraph) -->
+        <xpath expr="//t[contains(@t-set, 'address')]/div" position="attributes">
+            <attribute name="class" add="d-none" separator=" " />
+        </xpath>
+        <xpath expr="//t[contains(@t-set, 'address')]/p" position="attributes">
+            <attribute name="class" add="d-none" separator=" " />
+        </xpath>
+
+        <!-- Insert new custom address section before the existing address section -->
+        <xpath expr="//t[contains(@t-set, 'address')]" position="before">
+            <div class="row">
+                <!-- Company Address Column -->
+                <div class="col-6" name="company_address">
+                    <div
+                        t-field="doc.company_id.partner_id"
+                        t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"
+                    />
+                </div>
+                <!-- Partner Address Column -->
+                <div class="col-6" name="partner_address">
+                    <div
+                        t-field="doc.partner_id"
+                        t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"
+                    />
+                    <p t-if="doc.partner_id.vat">
+                        <!-- Display VAT information if available -->
+                        <t
+                            t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"
+                        />: <span t-field="doc.partner_id.vat" />
+                    </p>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Hide the main table of the sale order -->
+        <xpath expr="//table[hasclass('o_main_table')]" position="attributes">
+            <attribute name="class" add="d-none" separator=" " />
+        </xpath>
+
+        <!-- Create a new custom table before the original sale order table -->
+        <xpath expr="//table[hasclass('o_main_table')]" position="before">
+            <table
+                class="table table-sm o_main_lrm_table"
+                style="border: 1px solid #000; border-collapse: collapse;"
+            >
+                <thead>
+                    <tr>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >IMAGE</th>
+                        <th
+                            class="text-left"
+                            style="width: 25%; border: 1px solid #000; padding: 2px;"
+                        >PRODUCT/SERVICE DESC.</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >DELIVERY TIME</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >NCM/SH</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >CST</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >CFOP</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >UNIT</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >QTY</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >VL. DESC</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >ICMS BASE</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >ICMS SN %</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >VL. ICMS SN</th>
+                        <th
+                            class="text-center"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >IPI %</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >VL. IPI</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >VL. UNIT</th>
+                        <th
+                            class="text-right"
+                            style="width: 6%; border: 1px solid #000; padding: 2px;"
+                        >VL. TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="doc.order_line" t-as="line">
+                        <tr
+                            t-att-style="'background-color: #e9ecef; font-weight: bold;' if line.display_type == 'line_section' else ''"
+                        >
+                            <t t-if="line.display_type">
+                                <td
+                                    colspan="16"
+                                    class="text-left"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.name" />
+                                </td>
+                            </t>
+                            <t t-else="">
+                                <td
+                                    class="text-center align-middle"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <t t-if="line.product_id.image_128">
+                                        <img
+                                            class="mx-auto d-block"
+                                            style="width: 32px; height: 32px; object-fit: contain;"
+                                            t-att-src="image_data_uri(line.product_id.image_128)"
+                                        />
+                                    </t>
+                                </td>
+                                <td
+                                    class="text-left"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.name" />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.customer_lead"
+                                        t-options="{'widget': 'integer'}"
+                                    /> days
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.ncm_id.code" />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.icms_cst_id.code" />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.cfop_id.code" />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.product_uom" />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.product_uom_qty" />
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.discount" /> %
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.icms_base"
+                                        t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                    />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.icmssn_percent" /> %
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.icmssn_credit_value"
+                                        t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                    />
+                                </td>
+                                <td
+                                    class="text-center"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span t-field="line.ipi_percent" />
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.ipi_value"
+                                        t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                    />
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.price_unit"
+                                        t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                    />
+                                </td>
+                                <td
+                                    class="text-right"
+                                    style="border: 1px solid #000; padding: 2px;"
+                                >
+                                    <span
+                                        t-field="line.price_subtotal"
+                                        t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                    />
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+
+    <!-- Template for external layout customization -->
+    <template id="lrm_external_layout" inherit_id="web.external_layout_standard">
+        <!-- Hide the company address section in the external layout -->
+        <xpath
+            expr="//div[contains(@class, 'row')]/div[@name='company_address']"
+            position="attributes"
+        >
+            <attribute name="class" add="d-none" separator=" " />
+        </xpath>
+    </template>
+
+</odoo>

@@ -10,5 +10,5 @@
     "author": "Escodoo",
     "website": "https://github.com/Escodoo/lrm-addons",
     "depends": ["sale"],
-    "data": ["views/sale_order.xml"],
+    "data": ["views/sale_order.xml", "views/report_saleorder.xml"],
 }
