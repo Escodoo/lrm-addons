@@ -22,7 +22,7 @@ msgstr ""
 #: model:ir.actions.report,print_report_name:lrm_product_custom.action_report_product_product_label
 #: model:ir.actions.report,print_report_name:lrm_product_custom.action_report_product_template_label
 msgid "'Products Labels - %s' % (object.name)"
-msgstr "Etiquetas de Produto - %s' % (object.name)"
+msgstr "'Etiquetas de Produto - %s' % (object.name)"
 
 #. module: lrm_product_custom
 #: model_terms:ir.ui.view,arch_db:lrm_product_custom.report_product_label_custom
