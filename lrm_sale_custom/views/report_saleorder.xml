@@ -29,6 +29,35 @@
             <attribute name="class" add="d-none" separator=" " />
         </xpath>
 
+        <!-- Customize the note (terms and conditions) field to don't have page break -->
+        <xpath expr="//p[@t-field='doc.note']" position="attributes">
+            <attribute
+                name="style"
+            >page-break-inside: avoid; font-size: 14px;</attribute>
+        </xpath>
+
+        <!-- Hide the cotation/order name -->
+        <xpath expr="//h2" position="attributes">
+            <attribute name="class" add="d-none" separator=" " />
+        </xpath>
+
+        <!-- Create a new custom cotation/order name -->
+        <xpath expr="//h2" position="after">
+            <span
+                class="mt16 text-white p-1 mt-1 mb-1"
+                style="background-color: black; font-size: 32px;"
+            >
+                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                    <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                </t>
+                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                    <span>Pro-Forma Invoice # </span>
+                </t>
+                <span t-field="doc.name" />
+            </span>
+        </xpath>
+
         <!-- Insert new custom address section before the existing address section -->
         <xpath expr="//t[contains(@t-set, 'address')]" position="before">
             <div class="row">
@@ -64,7 +93,7 @@
         <xpath expr="//table[hasclass('o_main_table')]" position="before">
             <table
                 class="table table-sm o_main_lrm_table"
-                style="border: 1px solid #000; border-collapse: collapse;"
+                style="border: 1px solid #000; border-collapse: collapse; font-size: 12px;"
             >
                 <thead>
                     <tr>
@@ -101,11 +130,11 @@
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >QTY</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >VL. DESC</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >ICMS BASE</th>
                         <th
@@ -113,7 +142,7 @@
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >ICMS SN %</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >VL. ICMS SN</th>
                         <th
@@ -121,15 +150,15 @@
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >IPI %</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >VL. IPI</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >VL. UNIT</th>
                         <th
-                            class="text-right"
+                            class="text-center"
                             style="width: 6%; border: 1px solid #000; padding: 2px;"
                         >VL. TOTAL</th>
                     </tr>
@@ -207,13 +236,13 @@
                                     <span t-field="line.product_uom_qty" />
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span t-field="line.discount" /> %
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span
@@ -228,7 +257,7 @@
                                     <span t-field="line.icmssn_percent" /> %
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span
@@ -243,7 +272,7 @@
                                     <span t-field="line.ipi_percent" />
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span
@@ -252,7 +281,7 @@
                                     />
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span
@@ -261,7 +290,7 @@
                                     />
                                 </td>
                                 <td
-                                    class="text-right"
+                                    class="text-center"
                                     style="border: 1px solid #000; padding: 2px;"
                                 >
                                     <span
