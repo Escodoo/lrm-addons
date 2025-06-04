@@ -317,4 +317,22 @@
         </xpath>
     </template>
 
+    <!-- Paperformat -->
+
+    <record id="paperformat_lrm_low_margin" model="report.paperformat">
+        <field name="name">LRM - Sale Quotation</field>
+        <field name="default" eval="False" />
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False" />
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="paperformat_id" ref="lrm_sale_custom.paperformat_lrm_low_margin" />
+    </record>
 </odoo>
