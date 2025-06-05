@@ -7,117 +7,119 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-20 18:59+0000\n"
-"PO-Revision-Date: 2025-03-20 18:59+0000\n"
+"PO-Revision-Date: 2025-03-20 16:04-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "CFOP"
-msgstr ""
+msgstr "CFOP"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "CST"
-msgstr ""
+msgstr "CST"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "DELIVERY TIME"
-msgstr ""
+msgstr "PRAZO DE ENTREGA"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "DISCOUNT VALUE"
-msgstr ""
+msgstr "VL. DESC"
 
 #. module: lrm_sale_custom
 #: model:ir.model.fields,field_description:lrm_sale_custom.field_sale_order__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome de Exibição"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "ICMS %"
-msgstr ""
+msgstr "ICMS %"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "ICMS BASE"
-msgstr ""
+msgstr "BC ICMS"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "ICMS VALUE"
-msgstr ""
+msgstr "VL. ICMS"
 
 #. module: lrm_sale_custom
 #: model:ir.model.fields,field_description:lrm_sale_custom.field_sale_order__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "IMAGE"
-msgstr ""
+msgstr "IMAGEM"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "IPI %"
-msgstr ""
+msgstr "IPI %"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "IPI VALUE"
-msgstr ""
+msgstr "VL. IPI"
 
 #. module: lrm_sale_custom
 #: model:ir.model.fields,field_description:lrm_sale_custom.field_sale_order____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modificação em"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "NCM/SH"
-msgstr ""
+msgstr "NCM/SH"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid ""
 "PRODUCT/SERVICE\n"
 "                            DESCRIPTION"
-msgstr ""
+msgstr "DESC. PROD / SERV"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "QUANTITY"
-msgstr ""
+msgstr "QTD"
 
 #. module: lrm_sale_custom
 #: model:ir.model,name:lrm_sale_custom.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Pedido de Venda"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "TOTAL VALUE"
-msgstr ""
+msgstr "VL. TOTAL"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "UNIT"
-msgstr ""
+msgstr "UNID"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "UNIT VALUE"
-msgstr ""
+msgstr "VL. UNIT"
 
 #. module: lrm_sale_custom
 #: model_terms:ir.ui.view,arch_db:lrm_sale_custom.lrm_report_saleorder_document
 msgid "days"
-msgstr ""
+msgstr "dias"

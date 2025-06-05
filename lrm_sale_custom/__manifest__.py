@@ -9,6 +9,6 @@
     "license": "AGPL-3",
     "author": "Escodoo",
     "website": "https://github.com/Escodoo/lrm-addons",
-    "depends": ["sale"],
-    "data": ["views/sale_order.xml"],
+    "depends": ["l10n_br_sale"],
+    "data": ["views/sale_order.xml", "views/report_saleorder.xml"],
 }
