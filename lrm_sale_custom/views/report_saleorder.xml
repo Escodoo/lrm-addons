@@ -328,6 +328,7 @@
         <field name="margin_bottom">20</field>
         <field name="margin_left">0</field>
         <field name="margin_right">0</field>
+        <field name="header_spacing">15</field>
         <field name="header_line" eval="False" />
         <field name="dpi">90</field>
     </record>
