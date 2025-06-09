@@ -48,11 +48,17 @@
                 style="background-color: black; font-size: 32px;"
             >
                 <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
-                    <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                    <span
+                        t-if="doc.state not in ['draft','sent']"
+                        t-options='{"translate": True}'
+                    >Order # </span>
+                    <span
+                        t-if="doc.state in ['draft','sent']"
+                        t-options='{"translate": True}'
+                    >Quotation # </span>
                 </t>
                 <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                    <span>Pro-Forma Invoice # </span>
+                    <span t-options='{"translate": True}'>Pro-Forma Invoice # </span>
                 </t>
                 <span t-field="doc.name" />
             </span>
@@ -328,6 +334,7 @@
         <field name="margin_bottom">20</field>
         <field name="margin_left">0</field>
         <field name="margin_right">0</field>
+        <field name="header_spacing">15</field>
         <field name="header_line" eval="False" />
         <field name="dpi">90</field>
     </record>
